@@ -126,20 +126,40 @@ a:hover{color:var(--accent)}
 
 /* ===== Hero ===== */
 .hero{
-  background:var(--gradient);color:#fff;padding:5rem 0;text-align:center;position:relative;overflow:hidden;
+  background:var(--gradient);color:#fff
+  ;padding:5rem 0;text-align:center;position:relative;overflow:hidden;
 }
 .hero::before{
   content:"";position:absolute;inset:0;
   background:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600') center/cover;
   opacity:.18;
+  pointer-events: none;
 }
-.hero-content{position:relative;z-index:1;max-width:800px;margin:auto}
-.hero h1{font-size:clamp(2rem,5vw,3.5rem);margin-bottom:1rem;line-height:1.15}
-.hero p{font-size:1.15rem;opacity:.95;margin-bottom:2rem}
-.hero .btn{margin:.3rem}
+.hero-content{
+  position: relative;
+  z-index: 2;
+    max-width:850px;
+    margin:auto;
+}
+.hero h1{
+    font-size:3.5rem;
+    line-height:1.2;
+    margin-bottom:20px;
+    font-weight:700;
+}
+.hero p{
+    font-size:1.2rem;
+    line-height:1.8;
+    max-width:700px;
+    margin:0 auto 35px;
+    opacity:.95;
+}
+.hero .btn{margin:8px}
 
 /* ===== Buttons ===== */
 .btn{
+  position: relative;
+  z-index: 3;
   display:inline-block;padding:.85rem 1.8rem;border-radius:50px;font-weight:600;
   border:none;cursor:pointer;transition:var(--transition);font-size:1rem;
 }
@@ -220,6 +240,20 @@ main{flex:1}
     color:var(--muted);
     font-size:.85rem;
     margin-bottom:8px;
+}
+
+/* why join us  */
+.feature-img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:18px;
+    transition:.4s;
+}
+
+.card:hover .feature-img{
+    transform:scale(1.05);
 }
 
 /* ===== Page Header ===== */
@@ -408,6 +442,46 @@ main{flex:1}
     .grid-3{
         grid-template-columns:1fr;
     }
+
+}
+
+/* tablet */
+@media (max-width:992px){
+
+.hero{
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:2.8rem;
+}
+
+.hero p{
+    font-size:1.1rem;
+}
+
+}
+/* mobile */
+@media (max-width:768px){
+
+.hero{
+    padding:60px 20px;
+}
+
+.hero h1{
+    font-size:2.1rem;
+}
+
+.hero p{
+    font-size:1rem;
+}
+
+.hero .btn{
+    display:block;
+    width:100%;
+    max-width:320px;
+    margin:12px auto;
+}
 
 }
 }
