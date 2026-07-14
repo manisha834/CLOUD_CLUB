@@ -32,75 +32,112 @@
 <button class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
 </div></div></nav>
 <main>
-<section class="page-header"><div class="container"><h1>Workshops</h1><p>Practical sessions led by senior members and mentors.</p></div></section>
-<section class="section"><div class="container">
-<div class="section-title"><h2>Workshops</h2>
-    <p>Hands-on learning, every Thursday at 6 PM.</p>
-</div>
-<div class="workshop-filter">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="aws">AWS</button>
-    <button class="filter-btn" data-filter="azure">Azure</button>
-    <button class="filter-btn" data-filter="gcp">Google Cloud</button>
-    <button class="filter-btn" data-filter="data-engineering">DevOps</button>
-    <button class="filter-btn" data-filter="security">Security</button>
-    <button class="filter-btn" data-filter="networking">Networking</button>
-</div>
-<div class="grid grid-3">
-<div class="card workshop-card" data-category="aws">
-    <img src="images/aws.png" alt="AWS Essentials" class="feature-img">
-    <h3>AWS Essentials</h3>
-    <p>EC2, S3, IAM, and VPC — the building blocks of every cloud project.</p>
-</div>
 
-<div class="card workshop-card" data-category="azure">
-    <img src="images/azure.png" alt="Azure Fundamentals" class="feature-img">
-    <h3>Azure Fundamentals</h3>
-    <p>Resource groups, App Services, Cosmos DB and Active Directory basics.</p>
-</div>
+    <section class="page-header">
+        <div class="container">
+            <h1>Workshops</h1>
+            <p>Practical sessions led by senior members and mentors.</p>
+        </div>
+    </section>
 
-<div class="card workshop-card" data-category="gcp">
-    <img src="images/gcp.png" alt="Google Cloud Platform" class="feature-img">
-    <h3>Google Cloud Platform</h3>
-    <p>Compute Engine, BigQuery, and Firebase for modern application development.</p>
-</div>
+    <section class="section">
+        <div class="container">
 
-<div class="card workshop-card" data-category="docker">
-    <img src="images/docker.png" alt="Docker" class="feature-img">
-    <h3>Docker & Containers</h3>
-    <p>Containerize applications and master multi-stage builds and Compose.</p>
-</div>
+            <div class="section-title">
+                <h2>Workshops</h2>
+                <p>Hands-on learning, every Thursday at 6 PM.</p>
+            </div>
 
-<div class="card workshop-card" data-category="kubernetes">
-    <img src="images/kubernetes.jpeg" alt="Kubernetes" class="feature-img">
-    <h3>Kubernetes 101</h3>
-    <p>Pods, services, deployments, and your first Helm chart.</p>
-</div>
+            <!-- Filter Buttons -->
+            <div class="workshop-filter">
 
-<div class="card workshop-card" data-category="security">
-    <img src="images/security.jpg" alt="Cloud Security" class="feature-img">
-    <h3>Cloud Security</h3>
-    <p>IAM best practices, secrets management, and zero-trust architecture.</p>
-</div>
+                <button class="filter-btn active" data-filter="all">All</button>
 
-<div class="card workshop-card" data-category="data-engineering">
-    <img src="images/data-engineering.jpg" alt="Data Engineering" class="feature-img">
-    <h3>Data Engineering</h3>
-    <p>ETL pipelines using AWS Glue, Apache Airflow, and Snowflake.</p>
-</div>
+                <button class="filter-btn" data-filter="aws">AWS</button>
 
-<div class="card workshop-card" data-category="networking">
-    <img src="images/networking.jpg" alt="Networking" class="feature-img">
-    <h3>Networking</h3>
-    <p>VPCs, load balancers, CDNs, and global traffic management.</p>
-</div>
+                <button class="filter-btn" data-filter="azure">Azure</button>
 
-<div class="card workshop-card" data-category="mlops">
-    <img src="images/mlops.jpg" alt="MLOps" class="feature-img">
-    <h3>MLOps on Cloud</h3>
-    <p>Train, deploy, and monitor ML models with SageMaker and Vertex AI.</p>
-</div>
-</div></div></section>
+                <button class="filter-btn" data-filter="gcp">Google Cloud</button>
+
+                <button class="filter-btn" data-filter="devops">DevOps</button>
+
+                <button class="filter-btn" data-filter="security">Security</button>
+
+                <button class="filter-btn" data-filter="networking">Networking</button>
+
+            </div>
+
+            <!-- Workshop Cards -->
+            <div class="grid grid-3">
+
+                <!-- AWS -->
+                <div class="card workshop-card" data-category="aws">
+                    <img src="images/aws.png" alt="AWS Essentials" class="feature-img">
+                    <h3>AWS Essentials</h3>
+                    <p>EC2, S3, IAM, and VPC — the building blocks of every cloud project.</p>
+                </div>
+
+                <!-- Azure -->
+                <div class="card workshop-card" data-category="azure">
+                    <img src="images/azure.png" alt="Azure Fundamentals" class="feature-img">
+                    <h3>Azure Fundamentals</h3>
+                    <p>Resource Groups, App Services, Cosmos DB, and Azure Active Directory basics.</p>
+                </div>
+
+                <!-- Google Cloud -->
+                <div class="card workshop-card" data-category="gcp">
+                    <img src="images/gcp.png" alt="Google Cloud Platform" class="feature-img">
+                    <h3>Google Cloud Platform</h3>
+                    <p>Compute Engine, BigQuery, Cloud Storage, and Firebase for modern application development.</p>
+                </div>
+
+                <!-- Docker -->
+                <div class="card workshop-card" data-category="devops">
+                    <img src="images/docker.png" alt="Docker" class="feature-img">
+                    <h3>Docker & Containers</h3>
+                    <p>Learn containerization, Docker Compose, and multi-stage builds for cloud applications.</p>
+                </div>
+
+                <!-- Kubernetes -->
+                <div class="card workshop-card" data-category="devops">
+                    <img src="images/kubernetes.jpeg" alt="Kubernetes" class="feature-img">
+                    <h3>Kubernetes 101</h3>
+                    <p>Understand Pods, Deployments, Services, Ingress, and Helm charts for orchestration.</p>
+                </div>
+
+                <!-- Data Engineering -->
+                <div class="card workshop-card" data-category="devops">
+                    <img src="images/data-engineering.jpg" alt="Data Engineering" class="feature-img">
+                    <h3>Data Engineering</h3>
+                    <p>Build ETL pipelines using AWS Glue, Apache Airflow, and Snowflake.</p>
+                </div>
+
+                <!-- Security -->
+                <div class="card workshop-card" data-category="security">
+                    <img src="images/security.jpg" alt="Cloud Security" class="feature-img">
+                    <h3>Cloud Security</h3>
+                    <p>IAM best practices, secrets management, encryption, and zero-trust architecture.</p>
+                </div>
+
+                <!-- Networking -->
+                <div class="card workshop-card" data-category="networking">
+                    <img src="images/networking.jpg" alt="Networking" class="feature-img">
+                    <h3>Networking</h3>
+                    <p>Master VPCs, load balancers, DNS, CDNs, VPNs, and global traffic management.</p>
+                </div>
+
+                <!-- MLOps -->
+                <div class="card workshop-card" data-category="gcp">
+                    <img src="images/mlops.jpg" alt="MLOps" class="feature-img">
+                    <h3>MLOps on Cloud</h3>
+                    <p>Train, deploy, and monitor machine learning models using Vertex AI and cloud services.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
 </main>
 <footer class="footer"><div class="container">
 <div class="footer-grid">
@@ -129,4 +166,5 @@
 <li><a href="mailto:contact@cloudclub.edu">contact@cloudclub.edu</a></li></ul></div>
 </div>
 <div class="footer-bottom">© 2026 Cloud Computing Club — University Chapter. Built with ☁️ by students, for students.</div>
-</div></footer><script src="script.js"></script></body></html>
+</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script><script src="script.js"></script></body></html>

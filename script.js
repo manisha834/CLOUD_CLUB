@@ -1,5 +1,13 @@
+
 /* ===== Cloud Computing Club — Global JS ===== */
 (function(){
+
+   if (typeof emailjs !== "undefined") {
+    emailjs.init({
+        publicKey: "-_T1pgLUb-Ayxqnir"
+    });
+}
+ 
  // Theme toggle
 const root = document.documentElement;
 const saved = localStorage.getItem("cc-theme");
@@ -74,33 +82,116 @@ function initCountdown(targetDate,selector){
   tick();setInterval(tick,1000);
 }
 
+ 
 /* ===== Form Validation ===== */
-function validateForm(formId,rules,onSuccess){
-  const form=document.getElementById(formId);
-  if(!form) return;
-  form.addEventListener('submit',e=>{
-    e.preventDefault();
-    let ok=true;
-    form.querySelectorAll('.error-msg').forEach(s=>s.textContent='');
-    for(const field in rules){
-      const input=form.querySelector(`[name="${field}"]`);
-      const errEl=form.querySelector(`[data-error="${field}"]`);
-      const val=(input.value||'').trim();
-      const rule=rules[field];
-      let msg='';
-      if(rule.required && !val) msg='This field is required.';
-      else if(rule.minLength && val.length<rule.minLength) msg=`Minimum ${rule.minLength} characters.`;
-      else if(rule.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) msg='Please enter a valid email.';
-      else if(rule.phone && !/^[+\d][\d\s\-()]{6,}$/.test(val)) msg='Please enter a valid phone.';
-      if(msg){ok=false;if(errEl) errEl.textContent=msg;}
-    }
-    if(ok){
-      const succ=form.querySelector('.success-msg');
-      if(succ){succ.style.display='block';setTimeout(()=>succ.style.display='none',5000);}
-      form.reset();
-      if(onSuccess) onSuccess();
-    }
-  });
+function validateForm(formId, rules, onSuccess) {
+
+    const form = document.getElementById(formId);
+
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        let ok = true;
+
+        form.querySelectorAll(".error-msg").forEach(error => {
+            error.textContent = "";
+        });
+
+        // Validate fields
+        for (const field in rules) {
+
+            const input = form.querySelector(`[name="${field}"]`);
+            const errEl = form.querySelector(`[data-error="${field}"]`);
+
+            const val = (input.value || "").trim();
+            const rule = rules[field];
+
+            let msg = "";
+
+            if (rule.required && !val)
+                msg = "This field is required.";
+
+            else if (rule.minLength && val.length < rule.minLength)
+                msg = `Minimum ${rule.minLength} characters.`;
+
+            else if (rule.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val))
+                msg = "Please enter a valid email.";
+
+            else if (rule.phone && !/^[+\d][\d\s\-()]{6,}$/.test(val))
+                msg = "Please enter a valid phone.";
+
+            if (msg) {
+                ok = false;
+                if (errEl) errEl.textContent = msg;
+            }
+        }
+
+        if (!ok) return;
+
+
+
+        // CONTACT FORM
+if (form.id === "contact-form") {
+
+    emailjs.sendForm(
+        "service_2bhb4rm",
+        "template_252bs5a",
+        form,
+        "-_T1pgLUb-Ayxqnir"
+    )
+    .then(function(response) {
+
+        console.log("SUCCESS!", response);
+
+        const succ = form.querySelector(".success-msg");
+
+        if (succ) {
+            succ.style.display = "block";
+            setTimeout(() => {
+                succ.style.display = "none";
+            }, 5000);
+        }
+
+        form.reset();
+
+        if (onSuccess) onSuccess();
+
+    })
+    .catch(function(error) {
+
+        console.error("EMAILJS ERROR:", error);
+        alert("Failed to send email.");
+
+    });
+
+}
+
+        // ===============================
+        // MEMBERSHIP FORM
+        // ===============================
+        else {
+
+            const succ = form.querySelector(".success-msg");
+
+            if (succ) {
+                succ.style.display = "block";
+
+                setTimeout(() => {
+                    succ.style.display = "none";
+                }, 5000);
+            }
+
+            form.reset();
+
+            if (onSuccess) onSuccess();
+
+        }
+
+    });
+
 }
 
 /* ===== FAQ Accordion ===== */
@@ -112,6 +203,7 @@ function initFaq(){
     });
   });
 }
+
 
 /* ===== Gallery Slider ===== */
 function initSlider(){
@@ -146,30 +238,27 @@ document.addEventListener('DOMContentLoaded',()=>{
   evDate.setDate(evDate.getDate()+45);
   initCountdown(evDate,'#countdown');
 
-  // Membership form
-  validateForm('membership-form',{
-    name:{required:true,minLength:2},
-    email:{required:true,email:true},
-    phone:{required:true,phone:true},
-    university:{required:true},
-    interest:{required:true}
-  });
 
-  // Contact form
-  validateForm('contact-form',{
-    name:{required:true,minLength:2},
-    email:{required:true,email:true},
-    subject:{required:true,minLength:3},
-    message:{required:true,minLength:10}
-  });
 
-});   // <-- This was missing
+// Membership Form
+validateForm("membership-form", {
+    name: { required: true, minLength: 2 },
+    email: { required: true, email: true },
+    phone: { required: true, phone: true },
+    university: { required: true },
+    interest: { required: true }
+});
 
+// Contact Form
+validateForm("contact-form", {
+    name: { required: true, minLength: 2 },
+    email: { required: true, email: true },
+    subject: { required: true, minLength: 3 },
+    message: { required: true, minLength: 10 }
+});
 
 
 // workshops Card  Javascript
-
-document.addEventListener("DOMContentLoaded", () => {
 
     const buttons = document.querySelectorAll(".filter-btn");
     const cards = document.querySelectorAll(".workshop-card");
@@ -185,11 +274,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             cards.forEach(card => {
 
-                if(filter === "all" || card.dataset.category === filter){
-                    card.style.display = "block";
-                }else{
-                    card.style.display = "none";
-                }
+                card.style.display =
+                    filter === "all" || card.dataset.category === filter
+                        ? ""
+                        : "none";
 
             });
 
@@ -199,4 +287,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-})(); // <-- Keep this
+})();
