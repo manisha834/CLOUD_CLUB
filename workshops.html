@@ -20,11 +20,10 @@
     <li><a href="events.html">Events</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="resources.html">Resources</a></li>
-    <li><a href="mission.html">Mission</a></li>
+    
     <li><a href="workshops.html">Workshops</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="team.html">Team</a></li>
-    <li><a href="faq.html">FAQ</a></li>
+   
     <li><a href="membership.html">Membership</a></li>
     <li><a href="contact.html">Contact</a></li>
 </ul>
@@ -35,57 +34,68 @@
 <main>
 <section class="page-header"><div class="container"><h1>Workshops</h1><p>Practical sessions led by senior members and mentors.</p></div></section>
 <section class="section"><div class="container">
-<div class="section-title"><h2>Workshops</h2><p>Hands-on learning, every Thursday at 6 PM.</p></div>
+<div class="section-title"><h2>Workshops</h2>
+    <p>Hands-on learning, every Thursday at 6 PM.</p>
+</div>
+<div class="workshop-filter">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="aws">AWS</button>
+    <button class="filter-btn" data-filter="azure">Azure</button>
+    <button class="filter-btn" data-filter="gcp">Google Cloud</button>
+    <button class="filter-btn" data-filter="data-engineering">DevOps</button>
+    <button class="filter-btn" data-filter="security">Security</button>
+    <button class="filter-btn" data-filter="networking">Networking</button>
+</div>
 <div class="grid grid-3">
-<div class="card">
+<div class="card workshop-card" data-category="aws">
     <img src="images/aws.png" alt="AWS Essentials" class="feature-img">
     <h3>AWS Essentials</h3>
     <p>EC2, S3, IAM, and VPC — the building blocks of every cloud project.</p>
 </div>
 
-<div class="card">
+<div class="card workshop-card" data-category="azure">
     <img src="images/azure.png" alt="Azure Fundamentals" class="feature-img">
     <h3>Azure Fundamentals</h3>
     <p>Resource groups, App Services, Cosmos DB and Active Directory basics.</p>
 </div>
 
-<div class="card">
+<div class="card workshop-card" data-category="gcp">
     <img src="images/gcp.png" alt="Google Cloud Platform" class="feature-img">
     <h3>Google Cloud Platform</h3>
     <p>Compute Engine, BigQuery, and Firebase for modern application development.</p>
 </div>
 
-<div class="card">
+<div class="card workshop-card" data-category="docker">
     <img src="images/docker.png" alt="Docker" class="feature-img">
     <h3>Docker & Containers</h3>
     <p>Containerize applications and master multi-stage builds and Compose.</p>
 </div>
 
-<div class="card">
+<div class="card workshop-card" data-category="kubernetes">
     <img src="images/kubernetes.jpeg" alt="Kubernetes" class="feature-img">
     <h3>Kubernetes 101</h3>
     <p>Pods, services, deployments, and your first Helm chart.</p>
 </div>
 
-<div class="card">
+<div class="card workshop-card" data-category="security">
     <img src="images/security.jpg" alt="Cloud Security" class="feature-img">
     <h3>Cloud Security</h3>
     <p>IAM best practices, secrets management, and zero-trust architecture.</p>
 </div>
 
-<div class="card">
+<div class="card workshop-card" data-category="data-engineering">
     <img src="images/data-engineering.jpg" alt="Data Engineering" class="feature-img">
     <h3>Data Engineering</h3>
     <p>ETL pipelines using AWS Glue, Apache Airflow, and Snowflake.</p>
 </div>
 
-<div class="card">
+<div class="card workshop-card" data-category="networking">
     <img src="images/networking.jpg" alt="Networking" class="feature-img">
     <h3>Networking</h3>
     <p>VPCs, load balancers, CDNs, and global traffic management.</p>
 </div>
 
-<div class="card">
+<div class="card workshop-card" data-category="mlops">
     <img src="images/mlops.jpg" alt="MLOps" class="feature-img">
     <h3>MLOps on Cloud</h3>
     <p>Train, deploy, and monitor ML models with SageMaker and Vertex AI.</p>

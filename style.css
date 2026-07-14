@@ -364,6 +364,82 @@ main{flex:1}
 .footer .socials a{background:rgba(255,255,255,.08);color:#fff;border-color:transparent}
 .footer-bottom{text-align:center;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);font-size:.9rem}
 
+
+/* blog-aws.html  */
+blockquote{
+    border-left:5px solid var(--primary);
+    background:#f5f9ff;
+    padding:20px;
+    margin:25px 0;
+    border-radius:10px;
+    font-style:italic;
+    color:#555;
+}
+
+[data-theme="dark"] blockquote{
+    background:#162241;
+    color:#ddd;
+}
+
+.section h2{
+    margin:25px 0 15px;
+    color:var(--primary);
+}
+
+.section p{
+    margin-bottom:18px;
+    line-height:1.8;
+}
+
+
+.card-img{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* workshops Card CSS */
+
+.workshop-filter{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    margin-bottom:35px;
+    flex-wrap:wrap;
+}
+
+.filter-btn{
+    padding:10px 18px;
+    border:1px solid var(--border);
+    border-radius:30px;
+    background:var(--surface);
+    color:var(--text);
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    white-space:nowrap;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    background:var(--gradient);
+    color:#fff;
+    border-color:transparent;
+}
+
+@media (max-width:768px){
+    .workshop-filter{
+        gap:8px;
+    }
+
+    .filter-btn{
+        padding:8px 14px;
+        font-size:.9rem;
+    }
+}
+
 /* ===== Responsive ===== */
 @media(max-width:1100px){
   .menu-toggle{display:inline-flex}
@@ -426,6 +502,12 @@ main{flex:1}
     }
 
 }
+
+
+
+
+
+
 
 /* ===== Responsive Blog ===== */
 
